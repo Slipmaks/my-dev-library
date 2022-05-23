@@ -1,0 +1,75 @@
+.hamburger {
+  display: none;
+  cursor: pointer;
+  @media (max-width: 768px) {
+    display: block;
+    &.active .bar:nth-child(1) {
+      transform: rotate(45deg) translateY(11px);
+    }
+    &.active .bar:nth-child(2) {
+      opacity: 0;
+    }
+    &.active .bar:nth-child(3) {
+      transform: rotate(-45deg) translateY(-10px);
+    }
+  }
+}
+.bar {
+  display: block;
+  width: 25px;
+  height: 3px;
+  margin: 5px auto;
+  transition: all 0.3s ease-in-out;
+  background-color: white;
+}
+.hamburger {
+  &__navbar {
+    background-color: rgb(127, 214, 255);
+    min-height: 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 24px;
+    a {
+      text-decoration: none;
+      color: aliceblue;
+    }
+  }
+  &__logo {
+    img {
+      width: 32px;
+      height: auto;
+    }
+  }
+  &__nav__menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 60px;
+    @media (max-width: 768px) {
+      position: fixed;
+      right: -100%;
+      top: 70px;
+      flex-direction: column;
+      background-color: rgb(127, 214, 255);
+      width: 100%;
+      text-align: center;
+      transition: 0.3s;
+      z-index: 10;
+      &.active {
+        right: 0;
+      }
+    }
+  }
+  &__nav__item {
+    @media (max-width: 768px) {
+      margin: 16px 0;
+    }
+  }
+  &__nav__link {
+    transition: 0.7s ease;
+    &:hover {
+      color: rgb(0, 0, 0);
+    }
+  }
+}
